@@ -1,0 +1,96 @@
+@import url(https://fonts.googleapis.com/css?family=Lato|Noto+Serif);
+
+body, html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	//background-color: #eaf8f3; //pale brighter green
+	//background-color: #d7f2e8; //pale bright green
+}
+
+h1 {
+	margin: 0;
+	padding: 1% 1% 1% 1%;
+	font-family: Lato;
+	letter-spacing: 0.1em;
+}
+
+h2 {
+	margin: 0 0 0 10;
+	font-family: Noto Serif;
+}
+
+p {
+	padding-left: 1%;
+	//background-color: #eaf8f3;
+	font-family: Noto Serif;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #d7f2e8;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	font-family: Lato;
+	font-size: 20px;
+	font-weight: bold;
+	color: #000000;
+	text-align: center;
+	width: 120px;
+	height: 30px;
+	padding: 7% 0 0 0;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: #eaf8f3;
+}
+
+.menu_button {
+	display: inline-block;
+	background-color: #d7f2e8;
+	width: 8%;
+	height: 5%;
+	text-align: center;
+	margin: 0;
+	//padding: 1% 1% 1% 1%;
+	font-family: Lato;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.list_button {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	font-family: Lato;
+	//font-size: 1.2em;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.list_button:hover {
+	background-color: #eaf8f3;
+}

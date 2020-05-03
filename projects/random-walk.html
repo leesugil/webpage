@@ -1,0 +1,34 @@
+<html>
+
+<head>
+	<title>PROJECTS | Sugil Lee</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+	<script src="sketch-random-walk.js"></script>
+</head>
+
+<body>
+	<ul>
+		<li><a href="../home.html">HOME</a></li>
+		<li><a href="home.html">PROJECTS</a></li>
+		<li><a href="teaching.html">TEACHING</a></li>
+		<li><a href="papers.html">PAPERS</a></li>
+		<li><a href="cv.html">CV</a></li>
+		<li><a href="contact.html">CONTACT</a></li>
+		<li><a href="about.html">ABOUT</a></li>
+	</ul>
+	<div style="background-color: #d7f2e8;"><h1>PROJECTS</h1></div>
+	
+	<a href="home.html" style="font-family: Noto Serif; margin: 0 0 0 5px;">back to projects</a>
+	<h2>Random-Walk Simulator</h2>
+	<p>Our first project is a visulazation of unbiased random walks in four directions: north, east, south, and west.
+	<br>Random-walk models are often used to simulate real world phenomena which are assumed to be a consequence of successive random moves.
+	<br>Some of the interesting applications are made in the motion of molecules in liquids and gases (Brownian motion), genetic drift, or stock price analysis.
+	<br>Given the model and the quanity of observation (such as the distance from the original location), an interesting question is to find the expected value of the quantity in the long run.</p>
+	<div id="sketch-holder"></div>
+	<p>Our model here is an example of the "worm-hole" random-walk model: When the random-walker steps out of the given region, its position is set back to the origin.<br>The position also resets per every 1000 steps, but the older traces will remain on the screen.<br>The trace gets darker as the walker revisits the same trail.</p>
+	<p>Each time when this page is loaded, the simulator will generate a new random-walk trail. The source code can be found <a href="sketch-random-walk.js">here</a>.</p>
+</body>
+
+</html>
