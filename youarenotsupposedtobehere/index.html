@@ -1,21 +1,19 @@
 <html>
 <head>
 <title>fffffffffff</title>
-<script src="nav.js"></script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-$("#div1").load("nav.html");
+$("#nav_top").load("nav.html");
 });
 </script>
 </head>
 <body>
-
-<div id="div1"></div>
+<div id="nav_top"></div>
 <br>
 <p>wait, is this really working?</p>
 <h1>it's working! how about conflicting styles?</h1>
+<p>okay, double calliing css fails causes err-aborted 404. let nav.html just inherit the parent style.css.</p>
 
 </body>
 </html>
