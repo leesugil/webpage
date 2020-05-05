@@ -27,8 +27,6 @@
 	<p>Check out my projects on mathematics, data science, machine learning through the navigation menu.</p>
 	<div id="sketch-holder"></div>
 	
-	<?
-	php echo "is php working at all?";
-	?>
+	
   </body>
 </html>
