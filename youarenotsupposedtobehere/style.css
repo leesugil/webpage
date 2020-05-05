@@ -19,21 +19,22 @@ h2 {
 
 p {
 	padding-left: 1%;
-	//background-color: #eaf8f3;
 	font-family: Noto Serif;
 }
 
-ul a {
+ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
 	background-color: #d7f2e8;
+	overflow: hidden;
+}
+
+li {
+	float: left;
 }
 
 li a {
-	float: left;
-	margin-right: 0;
 	display: block;
 	font-family: Lato;
 	font-size: 20px;
@@ -42,7 +43,7 @@ li a {
 	text-align: center;
 	width: 120px;
 	height: 30px;
-	padding: 7% 0 0 0;
+	padding: 7 0 0 0;
 	text-decoration: none;
 }
 
