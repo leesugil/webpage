@@ -5,15 +5,11 @@ body, html {
 	padding: 0;
 }
 
-body {
-	//background-color: #eaf8f3; //pale brighter green
-	//background-color: #d7f2e8; //pale bright green
-}
-
 h1 {
 	margin: 0;
 	padding: 1% 1% 1% 1%;
-	font-family: Lato;
+	//font-family: Lato;
+	font-family: Noto Serif;
 	letter-spacing: 0.1em;
 }
 
