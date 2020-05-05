@@ -23,7 +23,7 @@ p {
 	font-family: Noto Serif;
 }
 
-ul {
+ul a {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -31,12 +31,9 @@ ul {
 	background-color: #d7f2e8;
 }
 
-li {
+li a {
 	float: left;
 	margin-right: 0;
-}
-
-li a {
 	display: block;
 	font-family: Lato;
 	font-size: 20px;
