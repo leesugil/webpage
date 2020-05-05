@@ -1,11 +1,19 @@
 <html>
 <head>
-<?php include "nav_top_hor.php";?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+   
+   $('#content').load("new.html");
+
+});
+</script>
 </head>
 <body>
 
-<p>working?</p>
-<?php echo "is php working at all?";?>
+<p>learned that Netlify uses AWS Lambda (though don't know what that is exactly) and thus supports server-side languages only what AWS supports such as JavaScript and Python. php was unfortunately not on the list, but I could try jQuery instead.</p>
+
+<div id="content"></div>
 
 </body>
 </html>
