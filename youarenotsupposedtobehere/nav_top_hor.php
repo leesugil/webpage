@@ -26,5 +26,9 @@
     <div style="background-color: #d7f2e8;"><h1>WELCOME | SUGIL LEE</h1></div>
 	<p>Check out my projects on mathematics, data science, machine learning through the navigation menu.</p>
 	<div id="sketch-holder"></div>
+	
+	<?
+	php echo "is php working at all?";
+	?>
   </body>
 </html>
