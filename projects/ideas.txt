@@ -1,0 +1,7 @@
+what is tda - use triangulation functions in p5
+economy recovery plan from covid19 - use census and casualty data to indicate weak groups
+from understanding functions to comprehending how mathematicians talk - transition
+basic algebra series
+calculus series
+abstract algebra series
+elliptic cryptography intro
