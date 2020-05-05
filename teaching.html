@@ -1,29 +1,21 @@
 <html>
   <head>
 	<title>TEACHING | Sugil Lee</title>
-    <link rel="stylesheet" type="text/css" href="../style.css">
-	<link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" type="image/png" href="img.favicon.png">
+	<!-- call top navigator -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	$("#nav_top").load("nav.html");
+	});
+	</script>	
   </head>
   <body>
-	<div style="float: right;">
-	<ul>
-		<li><a href="../home.html">HOME</a></li>
-		<li><a href="../projects/home.html">PROJECTS</a></li>
-		<li><a href="../teaching/home.html">TEACHING</a></li>
-		<li><a href="../papers/home.html">PAPERS</a></li>
-		<!--
-		<li><a href="../cv/home.html">CV</a></li>
-		-->
-		<li><a href="../contact/home.html">CONTACT</a></li>
-		<li><a href="../about/home.html">ABOUT</a></li>
-	</ul>
-	</div>
+	<div id="nav_top"></div>
 	
-	<div style="background-color: #d7f2e8;"><h1>TEACHING</h1></div>
+	<div style="background-color: #d7f2e8;"><h1>TEACHING LIST</h1></div>
 	
-	<!--
-	<p><a href="past-teaching.html" class="list_button">PAST TEACHING LIST</a></p>
-	-->
 	<div style="margin: 10;">
 	<p>2018-2019 Michigan State University</p>
 	<li a>Calculus III (US19)</li><br>

@@ -3,29 +3,27 @@
 <head>
 	<title>PROJECTS | Sugil Lee</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+	<!-- call top navigator -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	$("#nav_top").load("nav.html");
+	});
+	</script>
+	<!-- call p5 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
-	<script src="sketch-random-walk.js"></script>
+	<!-- call js -->
+	<script src="js/sketch-random-walk.js"></script>
 </head>
 
 <body>
-	<div style="float: right;">
-	<ul>
-		<li><a href="../home.html">HOME</a></li>
-		<li><a href="../projects/home.html">PROJECTS</a></li>
-		<li><a href="../teaching/home.html">TEACHING</a></li>
-		<li><a href="../papers/home.html">PAPERS</a></li>
-		<!--
-		<li><a href="../cv/home.html">CV</a></li>
-		-->
-		<li><a href="../contact/home.html">CONTACT</a></li>
-		<li><a href="../about/home.html">ABOUT</a></li>
-	</ul>
-	</div>
+	<div id="nav_top"></div>
 	
 	<div style="background-color: #d7f2e8;"><h1>PROJECTS</h1></div>
 	
-	<a href="home.html" style="font-family: Noto Serif; margin: 0 0 0 5px;">back to projects</a>
+	<a href="../projects.html" style="font-family: Noto Serif; margin: 0 0 0 5px;">back to projects</a>
 	<h2>Random-Walk Simulator</h2>
 	<p>Our first project is a visulazation of unbiased random walks in four directions: north, east, south, and west.
 	<br>Random-walk models are often used to simulate real world phenomena which are assumed to be a consequence of successive random moves.
@@ -33,7 +31,7 @@
 	<br>Given the model and the quanity of observation (such as the distance from the original location), an interesting question is to find the expected value of the quantity in the long run.</p>
 	<div id="sketch-holder"></div>
 	<p>Our model here is an example of the "worm-hole" random-walk model: When the random-walker steps out of the given region, its position is set back to the origin.<br>The position also resets per every 1000 steps, but the older traces will remain on the screen.<br>The trace gets darker as the walker revisits the same trail.</p>
-	<p>Each time when this page is loaded, the simulator will generate a new random-walk trail. The source code can be found <a href="sketch-random-walk.js">here</a>.</p>
+	<p>Each time when this page is loaded, the simulator will generate a new random-walk trail. The source code can be found <a href="js/sketch-random-walk.js">here</a>.</p>
 </body>
 
 </html>

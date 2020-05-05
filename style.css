@@ -5,11 +5,6 @@ body, html {
 	padding: 0;
 }
 
-body {
-	//background-color: #eaf8f3; //pale brighter green
-	//background-color: #d7f2e8; //pale bright green
-}
-
 h1 {
 	margin: 0;
 	padding: 1% 1% 1% 1%;
@@ -28,7 +23,7 @@ p {
 	font-family: Noto Serif;
 }
 
-ul {
+ul a {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -36,12 +31,9 @@ ul {
 	background-color: #d7f2e8;
 }
 
-li {
+li a {
 	float: left;
 	margin-right: 0;
-}
-
-li a {
 	display: block;
 	font-family: Lato;
 	font-size: 20px;
