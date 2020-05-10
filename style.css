@@ -98,5 +98,10 @@ li a:hover {
 
 #grad1 {
   background-color: #d7f2e8;
+  background-image: linear-gradient(to right, #d7f2e8, #ffffff);
+}
+
+#grad2 {
+  background-color: #d7f2e8;
   background-image: linear-gradient(#d7f2e8, #ffffff);
 }
