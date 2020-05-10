@@ -15,18 +15,18 @@ var traceSurface = [];
 var traceGradient = [];
 
 function f(x, y) {
-  return ((x**4 + y**4)/50 - 4*x*y)/30;
+  return ((x**4 + y**4)/50 - 4*x*y)/10;
 }
 
 function mouseWheel(event) {
   print(event.delta / 2500);
-  //s -= event.delta / 2500;
+  s -= event.delta / 2500;
 }
 
 function setup() {
-  createCanvas(400, 400, WEBGL).parent("sketch-holder");
+  createCanvas(400, 400, WEBGL);
   
-  angleSliderX = createSlider(0, PI, PI/3, 0.01).parent("sketch-holder");
+  angleSliderX = createSlider(0, PI, PI/3, 0.01);
   angle = PI;
   frameRate(30);
 }
@@ -55,8 +55,8 @@ function draw() {
   for (j = -rows; j < rows; j++) {
     beginShape(TRIANGLE_STRIP);
     for (i = -cols; i < cols; i++) {
-      if (f(i, j) < 40) {
-      r = map(f(i, j), -3.34, 40, 0, 255);
+      if (f(i, j) < 30) {
+      r = map(f(i, j), -10, 30, 0, 255);
       g = 230 + min(0, 30*f(i, j));
       b = 230 + min(0, 20*f(i, j));
       fill(r, g, b);
@@ -68,9 +68,9 @@ function draw() {
     endShape();
   }
   
-  //f(x, y) = ((x**4 + y**4)/50 - 4*x*y)/30
-  dx = - a*(4*x*x*x/50 - 4*y)/30;
-  dy = - a*(4*y*y*y/50 - 4*x)/30;
+  //f(x, y) = ((x**4 + y**4)/50 - 4*x*y)/10
+  dx = - a*(4*x*x*x/50 - 4*y)/10;
+  dy = - a*(4*y*y*y/50 - 4*x)/10;
   
   //trace on the surface
   stroke(255, 255, 0);
