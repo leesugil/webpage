@@ -11,7 +11,7 @@ var edges = [[0, 0]];
 var i = 1;
 
 function setup() {
-  canvas = createCanvas(800, 400);
+  canvas = createCanvas(800, 400).parent("sketch-holder");
   frameRate(10);
 }
 
