@@ -26,7 +26,7 @@ function mouseWheel(event) {
 function setup() {
   createCanvas(400, 400, WEBGL).parent("sketch-holder");
   
-  angleSliderX = createSlider(0, PI, PI/3, 0.01).parent("sketch-holder");
+  angleSliderX = createSlider(0, PI, PI/3.5, 0.01).parent("sketch-holder");
   angle = PI;
   frameRate(30);
 }
