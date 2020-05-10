@@ -7,17 +7,19 @@ body, html {
 
 h1 {
 	margin: 0;
-	padding: 5% 7% 3% 7%;
+	padding: 0.2em 7% 0.5em 7%;
 	font-family: Lato;
 	font-size: 2.5em;
 	letter-spacing: 0.1em;
 }
 
 h2 {
-	//margin: 0 0 0 10;
 	margin: 0;
 	padding: 1.62% 10% 1.62% 10%;
 	font-family: Noto Serif;
+	font-size: 2.5em;
+	letter-spacing: 0.02em;
+	color: 404040;
 }
 
 p {
@@ -30,7 +32,7 @@ ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	background-color: #d7f2e8;
+	//background-color: #d7f2e8;
 	overflow: hidden;
 }
 
@@ -91,4 +93,9 @@ li a:hover {
 
 .list_button:hover {
 	background-color: #eaf8f3;
+}
+
+#grad1 {
+  background-color: #d7f2e8;
+  background-image: linear-gradient(#d7f2e8, #d7f2e8, #ffffff);
 }
