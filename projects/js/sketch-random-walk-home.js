@@ -9,7 +9,6 @@ var d = 10;
 var vertices = [[0, 0]];
 var edges = [[0, 0]];
 var i = 1;
-var dist;
 
 function setup() {
   canvas = createCanvas(800, 400);
@@ -89,7 +88,4 @@ function draw() {
       line(x0, y0, x1, y1);
     }
   }
-  
-  dist = sqrt(x**2 + y**2);
-  //print("distance is " + dist);
 }
