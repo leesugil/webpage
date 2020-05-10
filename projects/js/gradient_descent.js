@@ -4,13 +4,13 @@ var angleSliderX;
 //var angleSliderZ;
 var rows = 15;
 var cols = 15;
-var x = -10;
+var x = 5;
 var y = -15;
 var x0;
 var y0;
 var d = 5;
-var s = 2;
-var a = 0.1;
+var s = 2.5;
+var a = 0.05;
 var traceSurface = [];
 var traceGradient = [];
 
@@ -20,7 +20,7 @@ function f(x, y) {
 
 function mouseWheel(event) {
   print(event.delta / 2500);
-  s -= event.delta / 2500;
+  //s -= event.delta / 2500;
 }
 
 function setup() {
@@ -35,7 +35,7 @@ function draw() {
   background(0);
   scale(s);
   
-  translate(0, 20, 0);
+  translate(0, 10, 0);
   rotateX(angleSliderX.value());
   rotateZ(angle);
   
