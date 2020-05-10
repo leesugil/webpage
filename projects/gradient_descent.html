@@ -36,7 +36,10 @@
 	<p>Hello! This is a sample display of gradient descent for my multivariable calculus class, meaning there is no details on this page yet :(</p>
 	<p>I'm hoping to add more on the definition of the gradient of a function and its usage in optimization, data science, and artificial intelligence.</p>
 	<p>To give you a slightest idea of what is gradient descent, it is about using the gradient vector of a single-valued function to find the maximum or mininum values (if these ever exist) that are obtained at the critical points of the function. This not only theoretically important but also useful in application because, for example, we often want to know when would a cost function be minimized.</p>
-	<div id="sketch-holder" align="center"></div>
+	<div id="sketch-holder" align="center">
+	</div>
+	<div id="sketch-holder2" align="center">Rotation
+	</div>
 	<p>For a very, very rough illustration just for the idea, supposer we want to maximize a single-valued function $f(x, y)$. Starting from an arbitarary point $(x_0, y_0)$, for example, the gradient vector $\nabla f$ of $f(x, y)$ at $(x_0, y_0)$ will give us the direction that $(x_0, y_0)$ should move to the next estimation $(x_1, y_1)$ such that the new output $f(x_1, y_1)$ is bigger than the previous output $f(x_0, y_0)$. Repeating this, we expect that $f(x_0, y_0) < f(x_1, y_1) < f(x_2, y_2) < \cdots$ will eventually reach a (locally) maximum value $f(x_n, y_n)$ of the function $f$ at some $(x_n, y_n)$.</p>
 	<p>Similarly, applying this to the negative of $f$ will lead us to a minimum value of $f$ (as a max of $-f$), hence gradient <i>descent</i>.</p>
 	<p>Gradient descent is a popular algorithm because, in some sense, using gradient is mathematically the right way to achieve extreme values in the general case.</p>
