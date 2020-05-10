@@ -101,5 +101,5 @@ function draw() {
     traceGradient = [];
   }
   
-  angle += 0.005;
+  angle += 0.003;
 }
