@@ -1,0 +1,41 @@
+<html>
+
+<head>
+	<title>PROJECTS | Sugil Lee</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+	<!-- call top navigator -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	$("#nav_top").load("nav.html");
+	});
+	</script>
+	<!-- call p5 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.dom.js"></script>
+	<!-- call js -->
+	<script src="js/gradient_descent.js"></script>
+</head>
+
+<body>
+	<div id="nav_top"></div>
+	
+	<div style="background-color: #d7f2e8;"><h1>PROJECTS</h1></div>
+	
+	<a href="../projects.html" style="font-family: Noto Serif; margin: 0 0 0 5px;">back to projects</a>
+	<h2>Gradient Descent</h2>
+	<p>Hello! This is a sample display of gradient descent for my multivariable calculus class, meaning there is no details on this page yet :(</p>
+	<p>I'm hoping to add more on the definition of the gradient of a function and its usage in optimization, data science, and artificial intelligence.</p>
+	<p>To give you a slightest idea of what is gradient descent, it is about using the gradient vector of a single-valued function f to find the maximum or mininum values (if these ever exist) that are obtained at the critical points of the function. This not only theoretically important but also useful in application because, for example, we often want to know when would a cost function be minimized.</p>
+	<p>For a very, very rough illustration just for the idea, starting from an arbitarary point (x0, y0), for example, the gradient vector of f(x, y) at (x0, y0) will give us the direction that (x0, y0) should move to the next estimation (x1, y1) such that the new output f(x1, y1) is bigger than the previous output f(x0, y0). Repeating this, we expect that f(x0, y0), f(x1, y1), f(x2, y2), ... will eventually reach a (locally) maximum output f(xn, yn) of the function f.</p>
+	<p>Similarly, applying this to the negative of f will lead us to a minimum value of f (as a max of -f), hence gradient <i>descent</i>.</p>
+	<p>Gradient descent is a popular algorithm because, in some sense, using gradient is mathematically the right way to achieve extreme values in the general case.</p>
+	<p>Even in today's artificial intelligence, we design an algorithm to "let machines learn" by specifically giving a key instruction: "learn from the data in a way that you minimize the output of the cost function."</p>
+	<div id="sketch-holder" align="center"></div>
+	<p>The green dotted trace shows a sequence of better estimations for a minimum value using gradient descent of the function given by the surface. The yellow trace on the surface is often more comvenient way to visualize the gradient descent.</p>
+	<p>The source code can be found <a href="js/gradient_descent.js">here</a>.</p>
+</body>
+
+</html>
