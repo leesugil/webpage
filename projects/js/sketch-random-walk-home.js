@@ -49,11 +49,11 @@ function update() {
     strokeStrength = 200;
     for (j=0; j<i; j++) {
       if ((edges[j][0] == edges[i][0]) && (edges[j][1] == edges[i][1])) {
-        print(j + ": " + edges[j][0] + "=" + edges[i][0] + "and" + edges[j][1] + "=" + edges[i][1]);
+        //print(j + ": " + edges[j][0] + "=" + edges[i][0] + "and" + edges[j][1] + "=" + edges[i][1]);
         strokeStrength = max(0, strokeStrength-50);
       }
     }
-    print(strokeStrength);
+    //print(strokeStrength);
 		
     vertices[i] = [x, y];
     i++;
@@ -67,7 +67,7 @@ function update() {
 function draw() {
   update();
   if (i > 1) {
-    print(i-1 + ", " + vertices[i-1]);
+    //print(i-1 + ", " + vertices[i-1]);
 
     var x0 = (canvas.width / 2) + (2*d * vertices[i-2][0]);
     var y0 = (canvas.height / 2) - (d * vertices[i-2][1]);
@@ -79,10 +79,10 @@ function draw() {
       //stroke(0);
       //ellipse(x0, y0, 5, 5);
       restart();
-      print("trapped in a worm hole!");
+      //print("trapped in a worm hole!");
     }
     else if ((x0 < 0) || (x0 > canvas.width) || (y0 < 0) || (y0 > canvas.height)) {
-      print("still trapped in a worm hole!");
+      //print("still trapped in a worm hole!");
     }
     else {
       stroke(strokeStrength);
@@ -91,5 +91,5 @@ function draw() {
   }
   
   dist = sqrt(x**2 + y**2);
-  print("distance is " + dist);
+  //print("distance is " + dist);
 }

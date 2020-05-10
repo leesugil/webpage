@@ -18,10 +18,10 @@ function f(x, y) {
   return ((x**4 + y**4)/50 - 4*x*y)/10;
 }
 
-function mouseWheel(event) {
-  print(event.delta / 2500);
+//function mouseWheel(event) {
+  //print(event.delta / 2500);
   //s -= event.delta / 2500;
-}
+//}
 
 function setup() {
   createCanvas(400, 400, WEBGL).parent("sketch-holder");
@@ -94,7 +94,7 @@ function draw() {
   x = x + dx;
   y = y + dy;
   if (((x-x0)**2) + ((y-y0)**2) * d * d < 0.0001) {
-    print("minimum value: ", f(x, y));
+    //print("minimum value: ", f(x, y));
     x = random(-cols, cols-1);
     y = random(-rows, rows-1);
     traceSurface = [];
