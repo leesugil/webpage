@@ -1,0 +1,117 @@
+<html>
+
+<head>
+	<title>PROJECTS | Sugil Lee</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+	<!-- call top navigator -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	$("#nav_top").load("nav1.html");
+	});
+	</script>
+	<!-- call p5 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.dom.js"></script>
+	<!-- call js -->
+	<script src="js/riemann_sum.js"></script>
+	<!-- call MathJax -->
+	<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+</head>
+
+<body>
+	<div id="nav_top"></div>
+	
+	<div id="grad1"><h1><br>PROJECTS</h1></div>
+	
+	<p style="margin: 0; padding: 1% 10% 1% 10%;"><a href="../projects.html">back to projects</a></p>
+	<h2>Riemann Sum</h2>
+	<p>
+	If you are a beginner in calculus, you will see a chapter explaining the Riemann sum before getting into the integral of a function.
+	</p>
+	<p>The Riemann Sum is the most intuitive way to approximate the area inside curves.
+	Simply speaking, it fills the desired region with rectangles of regular width so that we can add up the areas of rectanlges to estimate the true area.
+	Not only has it been the most primitive way to measure a property of shapes before the invention of computers, but also this is the way we tell the computers to measure a given area!
+	We simply ask them to do finer and finer approximations repeately until we are reasonably happy with the decimal approximation that the computer gives us.
+	</p>
+	<div id="sketch-holder" align="center" style="position: relative;">
+	</div>
+	<p>A <b><i>left</i> Riemann sum</b>, named after a great mathematician in 19th century, of a function $f(x)$ using $N$ rectangles is given using the following steps:
+	</p>
+	<p>First, choose the interval of measurement. This is to answer to the question: Would you like to measure the area enclosed by the graph of $f(x)$ and the $x$-axis from $x=0$ to $x=10$? If so, your interval is $[0, 10]$. For general intervals, let's say it's $[a, b]$, $x = a$ the starting point, $x = b$ the end point.
+	</p>
+	<p>Then we decide how many rectangles we would like to use to estimate the area. As you see in the figure, the more the rectanlges, the better the approximation. Let's call the number of rectangles $N$. A simple math then tells us that the width of each rectangle that we use must be
+	$$\text{common width} = \frac{b-a}{N}$$
+	because the length of the interval $[a, b]$ is $b-a$ and there's going to be $N$ rectangles sitting on top of it, each one occupying the length $\frac{b-a}{N}$. This common width is often denoted by
+	$$dx = \frac{b-a}{N},$$
+	$d$ for <i>delta</i>. In mathematics, <i>delta</i> often stands for <i>difference</i>, so $dx$ means the <i>difference in $x$-values</i>.
+	</p>
+	<p>
+	Now we imagine actual rectangles standing on each $\frac{b-a}{N}$-length interval. How tall should they be? Well, if your $x$-coordinate as given as the value of $x$ (like $x=2$), then you want the rectangles to grow as much as the "graph"-height, i.e., the value of $f(x)$ (like the calculated value of $f(2)$). Let's implement this idea.
+	</p>
+	<p>
+	Say we are at the starting point, $x=a$. I want my first rectangle to be of width $dx$ and height $f(a)$. Note that the area of such rectangle is then
+	$$\text{Area of the first rectangle} = f(a) \cdot dx,$$
+	the height times the width.
+	</p>
+	<p>
+	Now here comes what we mean by the <i>left</i> Riemann sum: The height of the rectangle was given by hitting the graph at the <b>top-left corner</b> of our rectnagle! If you choose to hit the graph at the top-right cornor during the whole process, it's called a <b><i>right</i> Riemann sum</b>. If you want to hit the graph at the top-center point of the top edge, it's called a <b><i>midpoint</i></b> Riemann sum. Got the idea?
+	</p>
+	<p>
+	Turning back to our initial choice of having a left corner as the height, what should be the expression for the height of the second rectangle? Now the second rectangle starts at $x = a + dx$ because the first one started at $x = a$ and occupied a space of length $dx = \frac{b-a}{N}$. Since we are at $x = a + dx$ now, the height then must be $f(a+dx)$. But the width stays the same as $dx$; we only changed our position, the width of the second rectangle was not changed from the first one. Then
+	$$\text{Area of the second rectangle} = f(a + dx) \cdot dx,$$
+	</p>
+	<p>Now the third one. The width will be again the same, <b>we only have to determine where we are and how tall the height is.</b> Because the second one started at $a+dx$ and occupied extra $dx$, our third rectangle starts at
+	$$a+dx+dx = a+2dx.$$
+	So $x = a+2dx$ and the corresponding height is $f(x) = f(a+2dx)$. Hence
+	$$\text{Area of the third rectangle} = f(a + 2dx) \cdot dx.$$
+	</p>
+	<p>Do you happen to see that here is a pattern? The third one started at $x = a+2dx$, so the fourth one must start at $x = a+2dx + dx = a+3dx$! Then
+	$$\text{Area of the fourth rectangle} = f(a + 3dx) \cdot dx.$$
+	We see that the <b>$n$th rectangle should start at</b>
+	$$x = a + (n-1) \cdot dx$$
+	and its height must be then $f(a + (n-1) \cdot dx)$ so that
+	$$\text{Area of the $n$th rectangle} = f(a + (n-1) \cdot dx) \cdot dx.$$
+	We keep placing the rectnagles this way until $n = N$, the last one. Notice that the $N$th one starts at $x = a + (N-1) \cdot dx$, so the end point of the $N$th one, the bottom-right cornor, is
+	$$x = a + (N-1) \cdot dx + dx = a + N \cdot dx.$$
+	This point should be the end of the interval $[a, b]$, right? You can see this by the substitution $dx = \frac{b-a}{N}$:
+	$$a + N \cdot \frac{b-a}{N} = a + b-a = b$$
+	as desired!
+	</p>
+	<p>
+	So we are done with the construction, namely we placed all the $N$ rectangles inside the region enclosed by the graph of $f(x)$ and the $x$-axis. Now what? Our goal was to measure to total area occupied by the rectangles! It is given by the sum of each area:
+	$$f(a) \cdot dx + f(a+dx) \cdot dx + f(a+2dx) \cdot dx + \cdots + f(a + (N-1)dx) \cdot dx.$$
+	This is it! This is the <b>left Riemann sum of $f(x)$ over the inverval $[a, b]$ using $N$ rectangles</b>!
+	</p>
+	<p>
+	Notice that each term has a common factor $dx$: it's because we used the same width for all rectangles.
+	This still looks a little bit too long to copy and write down by hand, so let's use the summation symbol $\sum$. Each term of the sumlooks like
+	$$f(a + i \cdot dx) dx$$
+	for $i = 0, ..., N-1$, right? Therefore we can simply express the long sum as
+	$$\text{Left Riemann sum} = \sum_{i=0}^{N-1} f(a + i \cdot dx) dx.$$
+	For the record, the <b>right Riemann sum</b> can be given similarly:
+	$$\text{Right Riemann sum} = \sum_{i=0}^{N-1} f(a + (i+1) \cdot dx) dx.$$
+	The right Riemann sum is sometimes given as
+	$$\text{Right Riemann sum} = \sum_{i=1}^{N} f(a + i \cdot dx) dx$$
+	and it's just a matter of preference (Notice the change in the range of $i$).
+	The <b>midpoint Riemann sum</b> formula looks a little bit longer because we use the midpoint coordinate of each rectangle, but you know the idea behind it. Thus I suggest you to reconstruct it yourself instead of trying to read someone else's fomula:
+	$$\text{Midpoint Riemann sum} = \sum_{i=0}^{N-1} f(a + (i + \frac{1}{2}) \cdot dx) dx.$$
+	Of course, these three types of Riemann sums give you slightly different values in general.
+	</p>
+	<p>
+	One totally reasonable question is, <i>which Riemann sum is better</i>?
+	Mathematicians in the history had continuously developed the theory of calculus to ensure that are these three are good as long as we use many rectangles (a large $N$)! By taking the value of $N$ bigger and bigger, Riemann showed that all these three approximations eventually give us the same number <b>which we take as the actual area of the region</b>.
+	</p>
+	<p>The process of "<i>taking bigger and bigger $N$ and seeing what happens</i>" is what's called <b><i>taking the limit $N \rightarrow \infty$</i></b>. This is the heart of the definition of differentiaion, integration, and indeed one of the commonly used fundamental concepts in mathematics whenever we want to imagine a behavior of something that doesn't end in finitely many steps.
+	</p>
+	<p>The source code can be found <a href="js/riemann_sum.js">here</a>.</p>
+</body>
+
+</html>
