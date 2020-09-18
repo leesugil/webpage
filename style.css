@@ -98,7 +98,9 @@ li a:hover {
 .list_button:hover {
 	//background-color: #eaf8f3;
 	//background-color: #f0fffc;
-	background-image: linear-gradient(to right, #ffffff, #f0fffc, #fffce6, #ffeeeb, #ffffff);
+	//background-image: linear-gradient(to right, #ffffff, #f0fffc, #fffce6, #ffeeeb, #ffffff);
+	background-color: #000000;
+	color: #ffffff;
 }
 
 #grad1 {
