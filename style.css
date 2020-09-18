@@ -21,7 +21,7 @@ h2 {
 	font-family: Lato;
 	font-size: 2.5em;
 	letter-spacing: 0.02em;
-	color: 404040;
+	color: 333333;
 }
 
 p {
@@ -98,8 +98,10 @@ li a:hover {
 }
 
 #grad1 {
-  background-color: #d7f2e8;
-  background-image: linear-gradient(to right, #d7f2e8, #ffffff);
+  //background-color: #d7f2e8;
+  //background-image: linear-gradient(to right, #40dea1, #f78f8d, #ffffff);
+  //background-image: linear-gradient(to right, #d4ffef, #ffd9d9, #ffffff);
+  background-image: linear-gradient(to right, #e3fffa, #ffe4d9, #ffffff);
 }
 
 #grad2 {
