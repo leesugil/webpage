@@ -57,6 +57,7 @@ li a {
 
 li a:hover {
 	background-color: #eaf8f3;
+	font-color: #ffffff;
 }
 
 .menu_button {
@@ -95,15 +96,16 @@ li a:hover {
 
 .list_button:hover {
 	//background-color: #eaf8f3;
-	background-color: #000000;
-	font-color: #ffffff;
+	//background-color: #f0fffc;
+	background-image: linear-gradient(to right, #ffffff, #f0fffc, #fffce6, #ffeeeb, #ffffff);
 }
 
 #grad1 {
   //background-color: #d7f2e8;
   //background-image: linear-gradient(to right, #40dea1, #f78f8d, #ffffff);
   //background-image: linear-gradient(to right, #d4ffef, #ffd9d9, #ffffff);
-  background-image: linear-gradient(to right, #e3fffa, #ffe4d9, #ffffff);
+  //background-image: linear-gradient(to right, #e3fffa, #ffe4d9, #ffffff);
+  background-image: linear-gradient(to right, #d4fcf4, #fffce6, #ffe4d9, #ffffff);
 }
 
 #grad2 {
