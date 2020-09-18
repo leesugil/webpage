@@ -13096,9 +13096,9 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="How-to-access-datasets-provided-in-sklearn-or-Keras">How to access datasets provided in sklearn or Keras<a class="anchor-link" href="#How-to-access-datasets-provided-in-sklearn-or-Keras">&#182;</a></h1><p>Some datasets have been historically so popular that sklearn and Keras actually offer the dataset by default (so that you don't have to look for it on the Internet).</p>
-<p>In this note, we will import two datasets, the iris data and the MNIST data.</p>
-<h2 id="The-iris-data">The iris data<a class="anchor-link" href="#The-iris-data">&#182;</a></h2>
+<h1 id="Append-v.s.-Concatenate">Append v.s. Concatenate<a class="anchor-link" href="#Append-v.s.-Concatenate">&#182;</a></h1><p>Here we learn two basic array manipulation techniques, append() and concatenate(). Both of the methods somehow "merge" two arrays to produce a bigger array, but there are differences for difference purposes.</p>
+<h2 id="Append()">Append()<a class="anchor-link" href="#Append()">&#182;</a></h2><p><code>appand()</code> ignores the original dimensions of the two arrays and simply produces a one-dimensional array.</p>
+
 </div>
 </div>
 </div>
@@ -13107,13 +13107,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import the iris data</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">iris</span><span class="p">))</span>
-<span class="n">iris</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]])</span>
 </pre></div>
 
     </div>
@@ -13126,188 +13123,13 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;class &#39;sklearn.utils.Bunch&#39;&gt;
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
     <div class="prompt output_prompt">Out[1]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;data&#39;: array([[5.1, 3.5, 1.4, 0.2],
-        [4.9, 3. , 1.4, 0.2],
-        [4.7, 3.2, 1.3, 0.2],
-        [4.6, 3.1, 1.5, 0.2],
-        [5. , 3.6, 1.4, 0.2],
-        [5.4, 3.9, 1.7, 0.4],
-        [4.6, 3.4, 1.4, 0.3],
-        [5. , 3.4, 1.5, 0.2],
-        [4.4, 2.9, 1.4, 0.2],
-        [4.9, 3.1, 1.5, 0.1],
-        [5.4, 3.7, 1.5, 0.2],
-        [4.8, 3.4, 1.6, 0.2],
-        [4.8, 3. , 1.4, 0.1],
-        [4.3, 3. , 1.1, 0.1],
-        [5.8, 4. , 1.2, 0.2],
-        [5.7, 4.4, 1.5, 0.4],
-        [5.4, 3.9, 1.3, 0.4],
-        [5.1, 3.5, 1.4, 0.3],
-        [5.7, 3.8, 1.7, 0.3],
-        [5.1, 3.8, 1.5, 0.3],
-        [5.4, 3.4, 1.7, 0.2],
-        [5.1, 3.7, 1.5, 0.4],
-        [4.6, 3.6, 1. , 0.2],
-        [5.1, 3.3, 1.7, 0.5],
-        [4.8, 3.4, 1.9, 0.2],
-        [5. , 3. , 1.6, 0.2],
-        [5. , 3.4, 1.6, 0.4],
-        [5.2, 3.5, 1.5, 0.2],
-        [5.2, 3.4, 1.4, 0.2],
-        [4.7, 3.2, 1.6, 0.2],
-        [4.8, 3.1, 1.6, 0.2],
-        [5.4, 3.4, 1.5, 0.4],
-        [5.2, 4.1, 1.5, 0.1],
-        [5.5, 4.2, 1.4, 0.2],
-        [4.9, 3.1, 1.5, 0.2],
-        [5. , 3.2, 1.2, 0.2],
-        [5.5, 3.5, 1.3, 0.2],
-        [4.9, 3.6, 1.4, 0.1],
-        [4.4, 3. , 1.3, 0.2],
-        [5.1, 3.4, 1.5, 0.2],
-        [5. , 3.5, 1.3, 0.3],
-        [4.5, 2.3, 1.3, 0.3],
-        [4.4, 3.2, 1.3, 0.2],
-        [5. , 3.5, 1.6, 0.6],
-        [5.1, 3.8, 1.9, 0.4],
-        [4.8, 3. , 1.4, 0.3],
-        [5.1, 3.8, 1.6, 0.2],
-        [4.6, 3.2, 1.4, 0.2],
-        [5.3, 3.7, 1.5, 0.2],
-        [5. , 3.3, 1.4, 0.2],
-        [7. , 3.2, 4.7, 1.4],
-        [6.4, 3.2, 4.5, 1.5],
-        [6.9, 3.1, 4.9, 1.5],
-        [5.5, 2.3, 4. , 1.3],
-        [6.5, 2.8, 4.6, 1.5],
-        [5.7, 2.8, 4.5, 1.3],
-        [6.3, 3.3, 4.7, 1.6],
-        [4.9, 2.4, 3.3, 1. ],
-        [6.6, 2.9, 4.6, 1.3],
-        [5.2, 2.7, 3.9, 1.4],
-        [5. , 2. , 3.5, 1. ],
-        [5.9, 3. , 4.2, 1.5],
-        [6. , 2.2, 4. , 1. ],
-        [6.1, 2.9, 4.7, 1.4],
-        [5.6, 2.9, 3.6, 1.3],
-        [6.7, 3.1, 4.4, 1.4],
-        [5.6, 3. , 4.5, 1.5],
-        [5.8, 2.7, 4.1, 1. ],
-        [6.2, 2.2, 4.5, 1.5],
-        [5.6, 2.5, 3.9, 1.1],
-        [5.9, 3.2, 4.8, 1.8],
-        [6.1, 2.8, 4. , 1.3],
-        [6.3, 2.5, 4.9, 1.5],
-        [6.1, 2.8, 4.7, 1.2],
-        [6.4, 2.9, 4.3, 1.3],
-        [6.6, 3. , 4.4, 1.4],
-        [6.8, 2.8, 4.8, 1.4],
-        [6.7, 3. , 5. , 1.7],
-        [6. , 2.9, 4.5, 1.5],
-        [5.7, 2.6, 3.5, 1. ],
-        [5.5, 2.4, 3.8, 1.1],
-        [5.5, 2.4, 3.7, 1. ],
-        [5.8, 2.7, 3.9, 1.2],
-        [6. , 2.7, 5.1, 1.6],
-        [5.4, 3. , 4.5, 1.5],
-        [6. , 3.4, 4.5, 1.6],
-        [6.7, 3.1, 4.7, 1.5],
-        [6.3, 2.3, 4.4, 1.3],
-        [5.6, 3. , 4.1, 1.3],
-        [5.5, 2.5, 4. , 1.3],
-        [5.5, 2.6, 4.4, 1.2],
-        [6.1, 3. , 4.6, 1.4],
-        [5.8, 2.6, 4. , 1.2],
-        [5. , 2.3, 3.3, 1. ],
-        [5.6, 2.7, 4.2, 1.3],
-        [5.7, 3. , 4.2, 1.2],
-        [5.7, 2.9, 4.2, 1.3],
-        [6.2, 2.9, 4.3, 1.3],
-        [5.1, 2.5, 3. , 1.1],
-        [5.7, 2.8, 4.1, 1.3],
-        [6.3, 3.3, 6. , 2.5],
-        [5.8, 2.7, 5.1, 1.9],
-        [7.1, 3. , 5.9, 2.1],
-        [6.3, 2.9, 5.6, 1.8],
-        [6.5, 3. , 5.8, 2.2],
-        [7.6, 3. , 6.6, 2.1],
-        [4.9, 2.5, 4.5, 1.7],
-        [7.3, 2.9, 6.3, 1.8],
-        [6.7, 2.5, 5.8, 1.8],
-        [7.2, 3.6, 6.1, 2.5],
-        [6.5, 3.2, 5.1, 2. ],
-        [6.4, 2.7, 5.3, 1.9],
-        [6.8, 3. , 5.5, 2.1],
-        [5.7, 2.5, 5. , 2. ],
-        [5.8, 2.8, 5.1, 2.4],
-        [6.4, 3.2, 5.3, 2.3],
-        [6.5, 3. , 5.5, 1.8],
-        [7.7, 3.8, 6.7, 2.2],
-        [7.7, 2.6, 6.9, 2.3],
-        [6. , 2.2, 5. , 1.5],
-        [6.9, 3.2, 5.7, 2.3],
-        [5.6, 2.8, 4.9, 2. ],
-        [7.7, 2.8, 6.7, 2. ],
-        [6.3, 2.7, 4.9, 1.8],
-        [6.7, 3.3, 5.7, 2.1],
-        [7.2, 3.2, 6. , 1.8],
-        [6.2, 2.8, 4.8, 1.8],
-        [6.1, 3. , 4.9, 1.8],
-        [6.4, 2.8, 5.6, 2.1],
-        [7.2, 3. , 5.8, 1.6],
-        [7.4, 2.8, 6.1, 1.9],
-        [7.9, 3.8, 6.4, 2. ],
-        [6.4, 2.8, 5.6, 2.2],
-        [6.3, 2.8, 5.1, 1.5],
-        [6.1, 2.6, 5.6, 1.4],
-        [7.7, 3. , 6.1, 2.3],
-        [6.3, 3.4, 5.6, 2.4],
-        [6.4, 3.1, 5.5, 1.8],
-        [6. , 3. , 4.8, 1.8],
-        [6.9, 3.1, 5.4, 2.1],
-        [6.7, 3.1, 5.6, 2.4],
-        [6.9, 3.1, 5.1, 2.3],
-        [5.8, 2.7, 5.1, 1.9],
-        [6.8, 3.2, 5.9, 2.3],
-        [6.7, 3.3, 5.7, 2.5],
-        [6.7, 3. , 5.2, 2.3],
-        [6.3, 2.5, 5. , 1.9],
-        [6.5, 3. , 5.2, 2. ],
-        [6.2, 3.4, 5.4, 2.3],
-        [5.9, 3. , 5.1, 1.8]]),
- &#39;target&#39;: array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]),
- &#39;frame&#39;: None,
- &#39;target_names&#39;: array([&#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;], dtype=&#39;&lt;U10&#39;),
- &#39;DESCR&#39;: &#39;.. _iris_dataset:\n\nIris plants dataset\n--------------------\n\n**Data Set Characteristics:**\n\n    :Number of Instances: 150 (50 in each of three classes)\n    :Number of Attributes: 4 numeric, predictive attributes and the class\n    :Attribute Information:\n        - sepal length in cm\n        - sepal width in cm\n        - petal length in cm\n        - petal width in cm\n        - class:\n                - Iris-Setosa\n                - Iris-Versicolour\n                - Iris-Virginica\n                \n    :Summary Statistics:\n\n    ============== ==== ==== ======= ===== ====================\n                    Min  Max   Mean    SD   Class Correlation\n    ============== ==== ==== ======= ===== ====================\n    sepal length:   4.3  7.9   5.84   0.83    0.7826\n    sepal width:    2.0  4.4   3.05   0.43   -0.4194\n    petal length:   1.0  6.9   3.76   1.76    0.9490  (high!)\n    petal width:    0.1  2.5   1.20   0.76    0.9565  (high!)\n    ============== ==== ==== ======= ===== ====================\n\n    :Missing Attribute Values: None\n    :Class Distribution: 33.3% for each of 3 classes.\n    :Creator: R.A. Fisher\n    :Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)\n    :Date: July, 1988\n\nThe famous Iris database, first used by Sir R.A. Fisher. The dataset is taken\nfrom Fisher\&#39;s paper. Note that it\&#39;s the same as in R, but not as in the UCI\nMachine Learning Repository, which has two wrong data points.\n\nThis is perhaps the best known database to be found in the\npattern recognition literature.  Fisher\&#39;s paper is a classic in the field and\nis referenced frequently to this day.  (See Duda &amp; Hart, for example.)  The\ndata set contains 3 classes of 50 instances each, where each class refers to a\ntype of iris plant.  One class is linearly separable from the other 2; the\nlatter are NOT linearly separable from each other.\n\n.. topic:: References\n\n   - Fisher, R.A. &#34;The use of multiple measurements in taxonomic problems&#34;\n     Annual Eugenics, 7, Part II, 179-188 (1936); also in &#34;Contributions to\n     Mathematical Statistics&#34; (John Wiley, NY, 1950).\n   - Duda, R.O., &amp; Hart, P.E. (1973) Pattern Classification and Scene Analysis.\n     (Q327.D83) John Wiley &amp; Sons.  ISBN 0-471-22361-1.  See page 218.\n   - Dasarathy, B.V. (1980) &#34;Nosing Around the Neighborhood: A New System\n     Structure and Classification Rule for Recognition in Partially Exposed\n     Environments&#34;.  IEEE Transactions on Pattern Analysis and Machine\n     Intelligence, Vol. PAMI-2, No. 1, 67-71.\n   - Gates, G.W. (1972) &#34;The Reduced Nearest Neighbor Rule&#34;.  IEEE Transactions\n     on Information Theory, May 1972, 431-433.\n   - See also: 1988 MLC Proceedings, 54-64.  Cheeseman et al&#34;s AUTOCLASS II\n     conceptual clustering system finds 3 classes in the data.\n   - Many, many more ...&#39;,
- &#39;feature_names&#39;: [&#39;sepal length (cm)&#39;,
-  &#39;sepal width (cm)&#39;,
-  &#39;petal length (cm)&#39;,
-  &#39;petal width (cm)&#39;],
- &#39;filename&#39;: &#39;D:\\ProgramData\\Miniconda3\\envs\\myenv\\lib\\site-packages\\sklearn\\datasets\\data\\iris.csv&#39;}</pre>
+<pre>array([0, 1, 2, 3, 4, 5, 6])</pre>
 </div>
 
 </div>
@@ -13319,7 +13141,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It can't be easier, right? This 'Bunch' data type is made out of several subdata, and here are some important arrays.</p>
+<p>So, for example, if you have to preserve the original dimension, you can reshape the output.</p>
 
 </div>
 </div>
@@ -13329,7 +13151,12 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">x</span>
 </pre></div>
 
     </div>
@@ -13348,7 +13175,9 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;frame&#39;, &#39;target_names&#39;, &#39;DESCR&#39;, &#39;feature_names&#39;, &#39;filename&#39;])</pre>
+<pre>array([[0, 1],
+       [2, 3],
+       [4, 5]])</pre>
 </div>
 
 </div>
@@ -13360,7 +13189,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>So, for example,</p>
+<h2 id="Concatenate()">Concatenate()<a class="anchor-link" href="#Concatenate()">&#182;</a></h2><p><code>concatenate()</code> actually does the previous manipulations at once, if the dimensions are all the same.</p>
 
 </div>
 </div>
@@ -13370,11 +13199,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iris_x</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
-<span class="n">iris_y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The features in X are: &#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The labels in Y are: &#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">DESCR</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]))</span>
+<span class="n">x</span>
 </pre></div>
 
     </div>
@@ -13387,190 +13216,27 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The features in X are:  [&#39;sepal length (cm)&#39;, &#39;sepal width (cm)&#39;, &#39;petal length (cm)&#39;, &#39;petal width (cm)&#39;] 
-
-The labels in Y are:  [&#39;setosa&#39; &#39;versicolor&#39; &#39;virginica&#39;] n
-.. _iris_dataset:
-
-Iris plants dataset
---------------------
-
-**Data Set Characteristics:**
-
-    :Number of Instances: 150 (50 in each of three classes)
-    :Number of Attributes: 4 numeric, predictive attributes and the class
-    :Attribute Information:
-        - sepal length in cm
-        - sepal width in cm
-        - petal length in cm
-        - petal width in cm
-        - class:
-                - Iris-Setosa
-                - Iris-Versicolour
-                - Iris-Virginica
-                
-    :Summary Statistics:
-
-    ============== ==== ==== ======= ===== ====================
-                    Min  Max   Mean    SD   Class Correlation
-    ============== ==== ==== ======= ===== ====================
-    sepal length:   4.3  7.9   5.84   0.83    0.7826
-    sepal width:    2.0  4.4   3.05   0.43   -0.4194
-    petal length:   1.0  6.9   3.76   1.76    0.9490  (high!)
-    petal width:    0.1  2.5   1.20   0.76    0.9565  (high!)
-    ============== ==== ==== ======= ===== ====================
-
-    :Missing Attribute Values: None
-    :Class Distribution: 33.3% for each of 3 classes.
-    :Creator: R.A. Fisher
-    :Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)
-    :Date: July, 1988
-
-The famous Iris database, first used by Sir R.A. Fisher. The dataset is taken
-from Fisher&#39;s paper. Note that it&#39;s the same as in R, but not as in the UCI
-Machine Learning Repository, which has two wrong data points.
-
-This is perhaps the best known database to be found in the
-pattern recognition literature.  Fisher&#39;s paper is a classic in the field and
-is referenced frequently to this day.  (See Duda &amp; Hart, for example.)  The
-data set contains 3 classes of 50 instances each, where each class refers to a
-type of iris plant.  One class is linearly separable from the other 2; the
-latter are NOT linearly separable from each other.
-
-.. topic:: References
-
-   - Fisher, R.A. &#34;The use of multiple measurements in taxonomic problems&#34;
-     Annual Eugenics, 7, Part II, 179-188 (1936); also in &#34;Contributions to
-     Mathematical Statistics&#34; (John Wiley, NY, 1950).
-   - Duda, R.O., &amp; Hart, P.E. (1973) Pattern Classification and Scene Analysis.
-     (Q327.D83) John Wiley &amp; Sons.  ISBN 0-471-22361-1.  See page 218.
-   - Dasarathy, B.V. (1980) &#34;Nosing Around the Neighborhood: A New System
-     Structure and Classification Rule for Recognition in Partially Exposed
-     Environments&#34;.  IEEE Transactions on Pattern Analysis and Machine
-     Intelligence, Vol. PAMI-2, No. 1, 67-71.
-   - Gates, G.W. (1972) &#34;The Reduced Nearest Neighbor Rule&#34;.  IEEE Transactions
-     on Information Theory, May 1972, 431-433.
-   - See also: 1988 MLC Proceedings, 54-64.  Cheeseman et al&#34;s AUTOCLASS II
-     conceptual clustering system finds 3 classes in the data.
-   - Many, many more ...
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-MNIST-data">The MNIST data<a class="anchor-link" href="#The-MNIST-data">&#182;</a></h2><p>The modified NIST data</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The MNIST data</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
-
-<span class="n">mnist_data</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">mnist_data</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">mnist_data</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
 
 
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Using TensorFlow backend.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;class &#39;tuple&#39;&gt;
-(2, 2)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>D:\ProgramData\Miniconda3\envs\myenv\lib\site-packages\numpy\core\_asarray.py:83: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray
-  return array(a, dtype, copy=False, order=order)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Again, it can't be easier.</p>
-<p>Unlike the data from sklearn, this data is a tuple (ordered and unchangeable). Unfortunately, it doesn't come with a nice description like those from sklearn, so we explain the data structure here a little bit.</p>
-<p>Note that importing utils and using utils.to_categorical() is to use the categorical_crossentropy loss function in Tensorflow.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist_data</span>
-
-<span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">utils</span>
-
-<span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">60000</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span><span class="o">/</span><span class="mi">255</span> <span class="c1"># the original x_train shape is (60000, 28, 28) with each pixel range 0~255.</span>
-<span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span><span class="o">/</span><span class="mi">255</span>
-<span class="n">y_train</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">y_test</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[0, 1],
+       [2, 3],
+       [4, 5]])</pre>
 </div>
 
 </div>
 
 </div>
+</div>
+
 </div>
     </div>
   </div>
-  
-<p>The source code can be found <a href="notebook/How_to_access_datasets_provided_in_sklearn_or_Keras.ipynb">here</a>.</p>
+
+<p>The source code can be found <a href="notebook/Append_vs_Concatenate.ipynb">here</a>.</p>
 
 <p>Last edited: 2020/9/18</p>
 
