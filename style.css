@@ -72,6 +72,48 @@ li a:hover {
 	color: #e2e2e2;
 }
 
+li2 {
+	display: inline-block;
+	//width: 100%;
+	//height: 5%;
+	text-align: center;
+	margin: 1% 2% 1% 2%;
+	padding: 1% 1% 1% 1%;
+	font-family: Lato;
+	//font-size: 1.2em;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+li2:hover {
+	background-color: #f2f2f2;
+}
+
+li3 {
+	display: inline-block;
+	//width: 100%;
+	//height: 5%;
+	text-align: center;
+	//margin: 0% 10% 0% 10%;
+	//padding: 1% 1% 1% 1%;
+	font-family: Noto Serif;
+	font-size: 0.9em;
+	font-weight: bold;
+	color: #555555;
+	text-decoration: none;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
+li3:hover {
+	background-color: #f2f2f2;
+}
+
 .menu_button {
 	display: inline-block;
 	background-color: #d7f2e8;
@@ -116,6 +158,32 @@ li a:hover {
 	//font-weight: normal;
 }
 
+.list_button2 {
+	display: inline-block;
+	width: 100%;
+	//height: 5%;
+	text-align: center;
+	margin: 0 0 0 0;
+	padding: 1% 0 1% 0;
+	font-family: Lato;
+	//font-size: 1.2em;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.list_button2:hover {
+	//background-color: #eaf8f3;
+	//background-color: #f0fffc;
+	//background-image: linear-gradient(to right, #ffffff, #f0fffc, #fffce6, #ffeeeb, #ffffff);
+	background-color: #f2f2f2;
+	//color: #ffffff;
+	//font-weight: normal;
+}
+
 #grad1 {
   //background-color: #d7f2e8;
   //background-image: linear-gradient(to right, #40dea1, #f78f8d, #ffffff);
@@ -127,4 +195,8 @@ li a:hover {
 #grad2 {
   background-color: #d7f2e8;
   background-image: linear-gradient(#d7f2e8, #ffffff);
+}
+
+.tag {
+	margin: 2% 1% 1% 1%
 }
