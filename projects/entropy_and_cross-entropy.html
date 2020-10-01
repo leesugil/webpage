@@ -32,9 +32,9 @@
 	<div id="grad1"><h1><br>SMALL PROJECTS</h1></div>
 	
 	<p style="margin: 0; padding: 1% 10% 1% 10%;"><a href="../projects.html">back to projects</a></p>
-	<h2>Entropy and Cross Entropy</h2>
+	<h2>Entropy and Cross-Entropy</h2>
 	<p>
-	This is a very short introduction to entropy and cross entropy used in data science.
+	This is a very short introduction to entropy and cross-entropy used in data science.
 	I'm not an expert in information theory, and I'll only be able to scratch the surface
 	for fellow students and engineers.
 	</p>
@@ -55,7 +55,7 @@
 	So what is entropy in data science?
 	</p>
 	<p>
-	What do we mean when we say that <a href="Random_Forest_Classifier.html">the Shannon entropy</a> is formally defined as
+	What do we mean when we say that <a href="https://drive.google.com/file/d/1pAyipD_s1KbMYG2sJsqegT1cbt9GJqeo/view?usp=sharing">the Shannon entropy</a> is formally defined as
 	$$H = - \sum_y p(y) \ln \big( p(y) \big)?$$
 	</p>
 	
@@ -100,7 +100,7 @@
 	</p>
 	
 	<p>
-	Averaging it measures how valuable the entire eventspace of $Y$ is,
+	Averaging it measures how uncommon, surprising, and thus transmisison-worthy the entire eventspace of $Y$ is,
 	$$H = - \sum_y p(y) \ln \big( p(y) \big)$$
 	if $Y$ is discrete.
 	</p>
@@ -111,7 +111,7 @@
 	</p>
 	
 	<p>
-	We saw this <a href="Random_Forest_Classifier.html">before</a> when a decision-tree classifier determines if bisecting a cluster of data points in a particular with improves the performance of binary prediction.
+	We saw this <a href="https://drive.google.com/file/d/1pAyipD_s1KbMYG2sJsqegT1cbt9GJqeo/view?usp=sharing">before</a> when a decision-tree classifier determines if bisecting a cluster of data points in a particular way improves the performance of binary prediction.
 	</p>
 	
 	<p>
@@ -129,7 +129,7 @@
 	
 	<p>
 	Notice that each partition $A_i$ would have the Shannon entropy of the form
-	$$-p(0) \ln \big( p(0) \big) - p(1) \ln \big( p(1) \big)$$
+	$$H_i = -p(0) \ln \big( p(0) \big) - p(1) \ln \big( p(1) \big)$$
 	which will be low because, less formally, if $p(0) >> p(1)$, then
 	$$-p(0) \ln \big( p(0) \big) \sim 0$$
 	as $\ln \big( p(0) \big) \sim 0$ and
@@ -137,6 +137,35 @@
 	because
 	$$\lim_{x \rightarrow 0} x \ln(x) = 0$$
 	by L'Hospital's rule.
+	</p>
+	
+	<p>
+	Thus the weighted average of $H_i$ would be low in this case as well, the weight determined by how we bisect the space.
+	In decision-trees, if the weighted average of entropy after a decision of bisection is lower than the current entropy (before bisection), then we say we gain information from the bisection and favor the decision.
+	</p>
+	
+	<h3>
+	Cross-Entropy
+	</h3>
+	
+	<p>
+	Then what's cross-entropy as a loss function?
+	</p>
+	
+	<p>
+	Consider the following situation: For each label $y$, we think it's probability (based on the data frequency) is $q(y)$, whereas the ground-truth is $p(y)$.
+	</p>
+	
+	<p>
+	Because of our misunderstanding, the value of the event $Y = y$ is now
+	$$- \ln \big( q(y) \big).$$
+	Thus the expected value with respect to the true probability density function $p(y)$ is then
+	$$H(p, q) = - \sum_y p(y) \ln \big( q(y) \big).$$
+	This cross-entropy $H(p, q)$ is minimized (to $H(p)$) when $p = q$.
+	</p>
+	
+	<p>
+	That's why it's meaningful to in an optimization problem to minimize $H(p, q)$ so that the estimate $q$ approximates the ground-truth $p$ correctly.
 	</p>
 	
 	<p>Last edited: 2020/10/1</p>
