@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>PROJECTS | Sugil Lee</title>
+<title>Random_Forest_Classifier</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -12947,8 +12947,13 @@ ul.typeahead-list  > li > a.pull-right {
 /*# sourceMappingURL=style.min.css.map */
     </style>
 <style type="text/css">
-    .highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+    pre { line-height: 125%; margin: 0; }
+td.linenos pre { color: #000000; background-color: #f0f0f0; padding: 0 5px 0 5px; }
+span.linenos { color: #000000; background-color: #f0f0f0; padding: 0 5px 0 5px; }
+td.linenos pre.special { color: #000000; background-color: #ffffc0; padding: 0 5px 0 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding: 0 5px 0 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -13084,14 +13089,17 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
-
-<p style="margin: 0; padding: 1% 10% 1% 10%;">
-<a href="../projects.html">back to projects</a>
-</p>
-
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="../projects.html">back to projects</a></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13103,7 +13111,7 @@ div#notebook {
 </ul>
 <p>The RFC method is a non-parametric machine learning method. This is an ensemble method averaging multiple decision trees, so let me start from there.</p>
 <p>If you just wish to grab a code for RFC (like my future self), here is a <a href="#code">wormhole</a>.</p>
-<p>The codes and the example are motivated from <em>Fundamentals of Machine Learning</em> by Thomas P. Trappenberg.</p>
+<p>The codes and the example are motivated from <em>Fundamentals of Machine Learning</em> by Thomas P. Trappenberg. (However, I find some errors in the book, one of them being potentially dangerous in interpretation, so I don't recommend this book as a beginner's choice even though that's the target audience.)</p>
 <h2 id="Preliminary:-Decision-Trees">Preliminary: Decision Trees<a class="anchor-link" href="#Preliminary:-Decision-Trees">&#182;</a></h2><p>What we eventually wish to achieve with a decision tree is intuitively somewhat similiar to SVM. We start with a labeled sample data for training the decision tree classifier, and we still wish to draw lines (or place hyperplanes as we saw from <a href="Support-Vector_Machines.html">SVM</a>) and say "hey, if the observation is on this side of the line, we predict it to be in class A, otherwise 'not A' for the moment." This type of yes/no branches occur each time we set a new classifying hyperplane, and we'll in particular apply theese yes/no gates in a sequential order determined by data so that the whole decision making process can be presented using a tree diagram.</p>
 <p>So how does the decision tree algorithm places a classifying hyperplane?</p>
 <p>Unlike SVM where a hyperplane could be placed in any location and direction in the feature space to determine the best split, RFC only places hyperplanes in particular direction: Basically for each attribute axis, we place a hyperplane perpendicular to it (a normal vector to the hyperplane is always pararell to the corresponding axis).</p>
@@ -13144,21 +13152,22 @@ $$\sum_{k = 1}^n p(k) \big( 1 - p(k) \big) = G.$$</li>
 <h2 id="Information-gain">Information gain<a class="anchor-link" href="#Information-gain">&#182;</a></h2><p><code>sklearn</code> also offers an option to use information gain as the criterion. The information gain is the difference between the entropy before the split and after the split.</p>
 <p>The entropy describes how uniform the data are.</p>
 <ul>
-<li>High entropy: the energy is uniformly distributed.</li>
-<li>Low entropy: the energy is locally grouped.</li>
+<li>High entropy: various groups exist in the cluster with the similar frequency.</li>
+<li>Low entropy: less groups exist in the cluster with a very skewed frequency, possibly with one dominant group.</li>
 </ul>
 <p>So the decision criterion can be described as the following:</p>
 <ul>
 <li>Before the split at $X_1 = c$, measure the entropy $H$ (We'll se how it's measured later).</li>
 <li>After the split, we will have two partitions. Measure the weighted average of the entropy of these two partitions (weight given by the volume of each partition).</li>
-<li>If the data was locally grouped before the split and the split made the local group occupy the entire volume of one of the new partitions, then we should have two partitions each with uniformly distributed information.</li>
-<li>In terms of the entropy, it was low before the split (not uniformly distributed information), but high after the split (two uniformly distributed information chambers).</li>
+<li>If the data was locally grouped before the split and the split made the local group occupy the entire volume of one of the new partitions, then we should have two partitions each with homogeneous information.</li>
+<li>In terms of the entropy, it was high before the split (two groups with similar frequency), but low after the split (two chambers with homogeneous information).</li>
 </ul>
-<p>Thus if the difference is positive and high, we can say we have done the partitioning correctly. Of course the aim is to maximize the difference.</p>
+<p>Thus if the difference is negative and high, we can say we have done the partitioning correctly. Of course the aim is to minimize the difference.</p>
 <p>So how do we calculate entropy then?</p>
 <p>The Shannon entropy is formally calculated as
 $$H = - \sum_y p(y) \ln \big( p(y) \big)$$
 where $p(y)$ is the probability that the label $y$ occurs in the data.</p>
+<p>Find out more in <a href="entropy_and_cross_entropy.html">here</a>.</p>
 
 </div>
 </div>
@@ -13530,13 +13539,15 @@ where $p(y)$ is the probability that the label $y$ occurs in the data.</p>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The source code can be found <a href="notebook/Random_Forest_Classifier.ipynb">here</a>.</p><p>Last edited: 2020/10/1</p>
+</div>
+</div>
+</div>
     </div>
   </div>
-
-<p>The source code can be found <a href="notebook/Random_Forest_Classifier.ipynb">here</a>.</p>
-
-<p>Last edited: 2020/9/19</p>
-
 </body>
 
  

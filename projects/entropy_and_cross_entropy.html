@@ -1,0 +1,145 @@
+<html>
+
+<head>
+	<title>PROJECTS | Sugil Lee</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+	<!-- call top navigator -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	$("#nav_top").load("nav1.html");
+	});
+	</script>
+	<!-- call p5 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.dom.js"></script>
+	<!-- call js -->
+	<script src="js/gradient_descent.js"></script>
+	<!-- call MathJax -->
+	<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+</head>
+
+<body>
+	<div id="nav_top"></div>
+	
+	<div id="grad1"><h1><br>SMALL PROJECTS</h1></div>
+	
+	<p style="margin: 0; padding: 1% 10% 1% 10%;"><a href="../projects.html">back to projects</a></p>
+	<h2>Entropy and Cross Entropy</h2>
+	<p>
+	This is a very short introduction to entropy and cross entropy used in data science.
+	I'm not an expert in information theory, and I'll only be able to scratch the surface
+	for fellow students and engineers.
+	</p>
+	<p>
+	The first big disappointment is that I wouldn't start from explaining thermodynamics here.
+	Yes, entropy increases in natural processes, molcules tend to be evenly spread as time goes.
+	Everyone must have heard it from a physicist (or friends) some time before
+	when they were explaining the laws of thermodynamics.
+	</p>
+	<p>
+	An almost identical idea of entropy was introduced in information theory later without the context of thermodynamics,
+	and I'll start from there as this is enough to understand how entropy is used in data science.
+	</p>
+	<p>
+	You'll find the related details in <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)#Rationale">Wikipedia</a>.
+	</p>
+	<p>
+	So what is entropy in data science?
+	</p>
+	<p>
+	What do we mean when we say that <a href="Random_Forest_Classifier.html">the Shannon entropy</a> is formally defined as
+	$$H = - \sum_y p(y) \ln \big( p(y) \big)?$$
+	</p>
+	
+	<h3>Value of Information</h3>
+	
+	<p>
+	The above formula for Shannon entropy is nothing but the expected value of $- \ln (p)$ where $p$ is a probability density function.
+	</p>
+	
+	<p>
+	What does $- \ln (p)$ tell us then?
+	</p>
+	
+	<p>
+	Suppose $Y = y_1$ is an event of a random variable $Y$ that we know it's likely to occur very commonly.
+	</p>
+	
+	<p>
+	Such event has less value in information theory because even if it happens, we sort of knew it would happen more often than not.
+	Here $p(y_1)$ will be close to 1.
+	</p>
+	
+	<p>
+	Keeping this in mind, let's assume the opposite case.
+	</p>
+	
+	<p>
+	Suppose now that the event $Y = y_2$ is very rare to occur.
+	If $Y = y_2$ actually occurs, it'll be a big surprise.
+	</p>
+	
+	<p>
+	Now when transmitting the occurrence of an event in information theory,
+	reporting common events like $y_1$ will be of lesser value
+	than reporting $y_2$.
+	</p>
+	
+	<p>
+	To evaluate the worth of an event based on the above criterion, we could use the following formula.
+	$$- \ln \big( p(y) \big)$$
+	This is exactly high when $p(y)$ is low (approaching to $+\infty$ as $p(y) \rightarrow 0$), and vice versa!
+	</p>
+	
+	<p>
+	Averaging it measures how valuable the entire eventspace of $Y$ is,
+	$$H = - \sum_y p(y) \ln \big( p(y) \big)$$
+	if $Y$ is discrete.
+	</p>
+	
+	<p>
+	This is entropy in information theory.
+	So how is it then used in data science?
+	</p>
+	
+	<p>
+	We saw this <a href="Random_Forest_Classifier.html">before</a> when a decision-tree classifier determines if bisecting a cluster of data points in a particular with improves the performance of binary prediction.
+	</p>
+	
+	<p>
+	We basically compared the entropy after bisection to the entropy before bisection.
+	Let's recall the situation.
+	</p>
+	
+	<p>
+	Suppose we know an almost perfect way to bisect data points in the feature space. (Only two labels are considered.)
+	</p>
+	
+	<p>
+	After the bisection, we would have two almost perfect partitions, say $A_1$ and $A_2$.
+	</p>
+	
+	<p>
+	Notice that each partition $A_i$ would have the Shannon entropy of the form
+	$$-p(0) \ln \big( p(0) \big) - p(1) \ln \big( p(1) \big)$$
+	which will be low because, less formally, if $p(0) >> p(1)$, then
+	$$-p(0) \ln \big( p(0) \big) \sim 0$$
+	as $\ln \big( p(0) \big) \sim 0$ and
+	$$-p(1) \ln \big( p(1) \big) \sim 0$$
+	because
+	$$\lim_{x \rightarrow 0} x \ln(x) = 0$$
+	by L'Hospital's rule.
+	</p>
+	
+	<p>Last edited: 2020/10/1</p>
+</body>
+
+</html>
