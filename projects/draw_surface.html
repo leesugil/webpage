@@ -31,7 +31,7 @@
 	<h2>Drawing a Surface</h2>
 	
 	<p>
-	Let's talk about computer graphics algorithm!
+	Let's talk about a computer graphics algorithm!
 	</p>
 	
 	<p>
@@ -39,7 +39,7 @@
 	</p>
 	
 	<p>
-	So I picked up WebGL, especially the THREE.js module, to start developing my own graphics library. It's going to be clumsy in the beginning, but the whole process of learning computer graphics itself is absolutely enjoyable and one of the things that I've always wanted to achieve.
+	So I picked up WebGL, more specifically <a href="threejs.org">the THREE.js module</a>, to start developing my own graphics library. It's going to be clumsy in the beginning, but the whole process of learning computer graphics itself is absolutely enjoyable and one of the things that I've always wanted to achieve.
 	</p>
 	
 	<p>
@@ -57,7 +57,7 @@
 	
 	<p>
 	This will serve its purpose, namely observing the behavior of the function, but I'm not completely happy with the four corners necessarily coming from the choice of a rectangular domain.
-	Could we remove them like a professional software?
+	Could we remove them to make it look like a smooth-edged picture from a calculus textbook?
 	</p>
 	
 	<div style="text-align: center">
@@ -69,21 +69,20 @@
 	A naive attempt that would obviously not work well with computers is to put an arbitrary restriction on $(x, y)$ like humans do. For example, to pick out the part $f(x, y) > 0$, I would impose a condition on $(x, y)$ such that, whenever
 	$$\sqrt{x^2 + y^2} > \pi,$$
 	let $z = -1$, hoping that you would then be able to place a horizontal plane $z = 0$ to create a nice cutting edge of the intersection.
-	</p>
+	</p>	
 	
 	<p>
 	This is obviously not a great idea because every process in the middle - the choice of the boundary restriction on $(x, y)$, the level $z = -1$, and the placement of a horizontal plane - was too arbitrary. And the resulting graph doesn't even look pretty!
 	</p>
 	
 	<p>
-	Stating an object using mathematical symbols doesn't make it mathematical. Then what should be the correct way to handle the annoying rectangular domain? Well, believe it or not, we've all seen the technique in vector calculus.
+	Stating an object using mathematical symbols doesn't make it mathematical. What should be the correct way to handle the annoying rectangular domain? Well, believe it or not, we've all seen the technique in vector calculus.
 	</p>
 	
 	<p>
 	This is exactly the case of a parametrization of a surface. We can map a rectangular region to a desired region as a parametric surface
-	$$(u, v) \longmapsto (x(u, v), y(u, v))$$
-	($z = 0$ in this demonstration)
-	and then generate the vertex map of the surface $z = f(x, y)$ using the coordinate $(x, y, f(x, y))$.
+	$$(u, v) \longmapsto (x(u, v), y(u, v), 0) \in \mathbb{R^3}.$$
+	The image region then could have an arbitrary shape depending on how we define $x = x(u, v)$ and $y = y(u, v)$, and we should use it as the domain when rendering the graph of $z = f(x, y)$!
 	</p>
 	
 	<div style="text-align: center">
@@ -92,27 +91,45 @@
 	</div>
 	
 	<p>
-	Smooth parametrization is how we impose Euclidean coordinate patches. And the theories from differential geometry apply here when it comes to determining the size of the coordinate patch.
+	Smooth parametrization is how we give Euclidean coordinate patches to a shape. And the theories from differential geometry apply here when it comes to determining the size of each coordinate patch.
 	</p>
 	
 	<p>
 	For example, the graph of $z = f(x, y)$ can be understood as the level curve $F(x, y, z) = 0$ where
 	$$F(x, y, z) = z - f(x, y).$$
-	Then the corresponding normal vector $\nabla F$ determines a coordinate patch at each point. But
+	Then the corresponding normal vector $\nabla F$ determines a coordinate patch at each point. Having a correctly calculated normal vector to the surface at a point is not only important in theories, as normal vectors could indicate the orientation of the surface which determines light reflection, shadowing, etc.
+	</p>
+	
+	<p>
+	But the normal vector of $F = 0$
 	$$\nabla F = <-f_x, -f_y, 1>$$
-	does not make sense at singular points like when $z = 0$ in our sphere case. Thus I chose the restriction
+	does not make sense at singular points like when $z = 0$ in our sphere case. ($f_x, f_y$ to the infinity!)
+	</p>
+	
+	<p>
+	Thus I chose the restriction
 	$$z \geq 1$$
 	to intentionally avoid getting near $z = 0$.
 	</p>
 	
+	<div style="text-align: center">
+		<div id="canvas4"></div>
+		An example of a failed calculation of vertices or normal vectors near $z = 0$.
+	</div>
+	
 	<p>
-	In theory, we choose multiple coordinate patches to cover the manifold, and the depiction of an arbitrary surface in $\mathbb{R}^3$ could be achieved similarly.
-	Commercial softwares have better algorithms for drawing a general parametric surface, but I'm sure they still obey the same mathematical principle.
+	In theory, we choose multiple coordinate patches to cover a manifold, and the depiction of an arbitrary surface in $\mathbb{R}^3$ could be achieved as a direct application of it.
+	Commercial graphing softwares should have better algorithms for drawing a general parametric surface, but a direct application of textbook calculus could yield a reasonably acceptable prototype.
 	</p>
+	
+	<div style="text-align: center">
+		<div id="canvas5"></div>
+		Thanks for reading!
+	</div>
 	
 	<p>The source code can be found <a href="js/draw_surface.js">here</a>.</p>
 	
-	<p>Last edited: 2020/11/22</p>
+	<p>Last edited: 2020/11/23</p>
 	<script type="module" src="js/draw_surface.js"></script>
 </body>
 
