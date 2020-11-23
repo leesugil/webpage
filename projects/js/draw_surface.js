@@ -455,17 +455,17 @@ let renderer5 = getRenderer(container5);
 const scene5 = new THREE.Scene();
 scene5.background = new THREE.Color( 0xf0f0f0 );
 
-let lightInfo5 = setLight(scene5);
+let lightInfo5 = setLight(scene5, 0xeeff88);
 let light5 = lightInfo5['light'];
 let helper5 = lightInfo5['helper'];
 
 let camera5 = setCamera(scene5, 80, 9, 5, 5, 0, 0, 0);
 
-setCoordAxes(scene5);
+//setCoordAxes(scene5);
 
 function drawSurface5(f, scene, u_max = 5, n_intervals_u = 20, v_max = 5, n_intervals_v = 20, edges = true) {
 	// draw the surface using triangulation
-	material = new THREE.MeshLambertMaterial( { color : 0xcccccc, vertexColors: true, side: THREE.DoubleSide } );
+	material = new THREE.MeshLambertMaterial( { color : 0xeeeeee, vertexColors: true, side: THREE.DoubleSide } );
 
 	geometry = new THREE.BufferGeometry();
 	let indices = [];
@@ -538,9 +538,11 @@ drawSurface5(f, scene5, 5, 40, 5, 40, false);
 
 
 // i'm actually not animating anything.
-//i = 0;
+i = 0;
 const animate = function () {
 	requestAnimationFrame( animate );
+	
+	camera5.position.set(5, 5 + Math.sin(i), 9);
 	
 	//helper.update();
 	//helper2.update();
@@ -549,8 +551,8 @@ const animate = function () {
 	renderer3.render( scene3, camera3 );
 	renderer4.render( scene4, camera4 );
 	renderer5.render( scene5, camera5 );
-	//i += 0.05;
-	//i = i % 10;
+	i += 0.025;
+	i = i % (2 * Math.PI);
 };
 
 animate()
