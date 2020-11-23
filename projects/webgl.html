@@ -11,11 +11,6 @@
 	$("#nav_top").load("nav1.html");
 	});
 	</script>
-	<!-- call p5 -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.dom.js"></script>
-	<!-- call js -->
 	
 	<!-- call MathJax -->
 	<script type="text/x-mathjax-config">
@@ -24,6 +19,7 @@
 	<script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 	</script>
+	
 </head>
 
 <body>
@@ -32,18 +28,27 @@
 	<div id="grad1"><h1><br>SMALL PROJECTS</h1></div>
 	
 	<p style="margin: 0; padding: 1% 10% 1% 10%;"><a href="../projects.html">back to projects</a></p>
-	<h2>Curl</h2>
+	<h2>WebGL</h2>
 	
 	<p>
 	Welcome to WebGL! People say you should just use THREE.js instead! ;)
 	</p>
 	
-	<p style="text-align: center">
-	<canvas id="canvas1" width="640" height="480"></canvas>
-	<script src="js/perlin_noise.js"></script>
+	<p>
+	Oh, I remember this! They way WebGL sets up looks very similar to how SDL was set up.
 	</p>
 	
-	<p>The source code can be found <a href="js/curl.js">here</a>.</p>
+	<p>
+	I'm moving to three.js right now.
+	</p>
+	
+	<div style="text-align: center">
+		<div id="canvas1"></div>
+		<script type="module" src="js/webgl.js"></script>
+		verbal description
+	</div>
+	
+	<p>The source code can be found <a href="js/webgl.js">here</a>.</p>
 	
 	<p>Last edited: 2020/11/21</p>
 </body>

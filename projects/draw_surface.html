@@ -1,0 +1,119 @@
+<html>
+
+<head>
+	<title>PROJECTS | Sugil Lee</title>
+    <link rel="stylesheet" type="text/css" href="./css/draw_surface.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+	<!-- call top navigator -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	$("#nav_top").load("nav1.html");
+	});
+	</script>
+	
+	<!-- call MathJax -->
+	<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	
+</head>
+
+<body>
+	<div id="nav_top"></div>
+	
+	<div id="grad1"><h1><br>SMALL PROJECTS</h1></div>
+	
+	<p style="margin: 0; padding: 1% 10% 1% 10%;"><a href="../projects.html">back to projects</a></p>
+	<h2>Draw Surface</h2>
+	
+	<p>
+	Let's talk about computer graphics algorithm!
+	</p>
+	
+	<p>
+	For many years as a calculus instructor at a college, I've been hoping to code my own graphics library for teaching purposes. Of course many softwares already support fantastic graphing features, but I always wanted a light, free, and customizable way to draw curves and surfaces.
+	</p>
+	
+	<p>
+	So I picked up WebGL, especially the THREE.js module, to start developing my own graphics library. It's going to be clumsy in the beginning, but the whole process of learning computer graphics itself is absolutely enjoyable and one of the things that I've always wanted to achieve.
+	</p>
+	
+	<p>
+	Graphing a single-variable function $y = f(x)$ isn't that difficult as the domain is just a line segment. The real challenging part starts when graphing a function of two variable $z = f(x, y)$, where the domain is now in a plane.
+	</p>
+	
+	<p>
+	Here is everyone's first attempt, plotting over a rectangular region.
+	</p>
+	
+	<div style="text-align: center; z-index: -1">
+		<div id="canvas1"></div>
+		A graph of $z = \sin \bigg( \sqrt{x^2 + y^2} \bigg)$.
+	</div>
+	
+	<p>
+	This will serve its purpose, namely observing the behavior of the function, but I'm not completely happy with the four corners necessarily coming from the choice of a rectangular domain.
+	Could we remove them like a professional software?
+	</p>
+	
+	<div style="text-align: center">
+		<div id="canvas2"></div>
+		The cinnamon role, a failed attempt.
+	</div>
+	
+	<p>
+	A naive attempt that would obviously not work well with computers is to put an arbitrary restriction on $(x, y)$ like humans do. For example, to pick out the part $f(x, y) > 0$, I would impose a condition on $(x, y)$ such that, whenever
+	$$\sqrt{x^2 + y^2} > \pi,$$
+	let $z = -1$, hoping that you would then be able to place a horizontal plane $z = 0$ to create a nice cutting edge of the intersection.
+	</p>
+	
+	<p>
+	This is obviously not a great idea because everything - the choice of the boundary restriction on $(x, y)$, the level $z = -1$, and the placement of a horizontal plane were all too arbitrary. And the resulting graph doesn't even look pretty!
+	</p>
+	
+	<p>
+	Stating an object using mathematical symbols doesn't make it mathematical. Then what should be the correct way to handle the annoying rectangular domain? Well, believe it or not, we've all seen the technique in vector calculus.
+	</p>
+	
+	<p>
+	This is exactly the case of a parametrization of a surface. We can map a rectangular region to a desired region as a parametric surface
+	$$(u, v) \longmapsto (x(u, v), y(u, v))$$
+	($z = 0$ in this demonstration)
+	and then generate the vertex map of the surface $z = f(x, y)$ using the coordinate $(x, y, f(x, y))$.
+	</p>
+	
+	<div style="text-align: center">
+		<div id="canvas3"></div>
+		$\{ (x, y, z) \ | \ x^2 + y^2 + z^2 = 36, \ z \geq 1 \}$
+	</div>
+	
+	<p>
+	Smooth parametrization is how we impose Euclidean coordinate patches. And the theories from differential geometry apply here when it comes to determining the size of the coordinate patch.
+	</p>
+	
+	<p>
+	For example, the graph of $z = f(x, y)$ can be understood as the level curve $F(x, y, z) = 0$ where
+	$$F(x, y, z) = z - f(x, y).$$
+	Then the corresponding normal vector $\nabla F$ determines a coordinate patch at each point. But
+	$$\nabla F = <-f_x, -f_y, 1>$$
+	does not make sense at singular points like when $z = 0$ in our sphere case. Thus I chose the restriction
+	$$z \geq 1$$
+	to intentionally avoid getting near $z = 0$.
+	</p>
+	
+	<p>
+	In theory, we choose multiple coordinate patches to cover the manifold, and the depiction of an arbitrary surface in $\mathbb{R}^3$ could be achieved similarly.	
+	I'm sure commercial softwares have better algorithms for the actual implementation, but not going too far from the mathematical principles.
+	</p>
+	
+	<p>The source code can be found <a href="js/draw_surface.js">here</a>.</p>
+	
+	<p>Last edited: 2020/11/22</p>
+	<script type="module" src="js/draw_surface.js"></script>
+</body>
+
+</html>
