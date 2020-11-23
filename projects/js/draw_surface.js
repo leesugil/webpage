@@ -267,7 +267,7 @@ let renderer3 = getRenderer(container3);
 const scene3 = new THREE.Scene();
 scene3.background = new THREE.Color( 0xf0f0f0 );
 
-let lightInfo3 = setLight(scene3);
+let lightInfo3 = setLight(scene3,0xeeff88);
 let light3 = lightInfo3['light'];
 let helper3 = lightInfo3['helper'];
 
@@ -281,7 +281,7 @@ function g(x, y) {
 
 function drawSurface3(f, scene, u_max = Math.sqrt(35), n_intervals_u = 20, v_max = 5, n_intervals_v = 20, edges = true) {
 	// draw the surface using triangulation
-	material = new THREE.MeshLambertMaterial( { color : 0xcccccc, vertexColors: true, side: THREE.DoubleSide } );
+	material = new THREE.MeshLambertMaterial( { color : 0xeeeeee, vertexColors: true, side: THREE.DoubleSide } );
 	//material = new THREE.MeshBasicMaterial( { color : 0xcccccc, vertexColors: true, side: THREE.DoubleSide } );
 
 	geometry = new THREE.BufferGeometry();
