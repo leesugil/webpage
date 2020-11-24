@@ -2,4 +2,4 @@
 
 [Here is the link to the actual webpage.][sugil's webpage]
 
-[sugil's webpage]: https://www.leesugil.github.io
+[sugil's webpage]: https://leesugil.github.io
