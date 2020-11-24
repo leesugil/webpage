@@ -1,6 +1,6 @@
 # Welcome to Sugil's website repo!
 
-[Here is the link to the actual website.][sugil's website]
+[Here is the link to the website.][sugil's website]
 
 [sugil's website]: https://leesugil.github.io
 
