@@ -1,5 +1,13 @@
-# Welcome to Sugil's webpage repo!
+# Welcome to Sugil's website repo!
 
-[Here is the link to the actual webpage.][sugil's webpage]
+[Here is the link to the actual website.][sugil's website]
 
-[sugil's webpage]: https://leesugil.github.io
+[sugil's website]: https://leesugil.github.io
+
+## Index
+
+In my website, you can find the followings:
+- Side projects & study notes
+- Teaching profile
+- About me
+- Contact info
