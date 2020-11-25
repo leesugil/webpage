@@ -16,15 +16,31 @@ In my website, you can find the followings:
 
 How should we remove the four corners in the image
 
-![](https://leesugil.github.io/img/example1.png)
+<!-- ![](https://leesugil.github.io/img/example1.png) -->
+<p align="center">
+  <img src="https://leesugil.github.io/img/example1.png" width="50%">
+</p>
 
-like the following
+generated when using double `for` loops for plotting like
 
-![](https://leesugil.github.io/img/example2.png)
+```
+for (x = -5; x < 5; x += dx) {
+  for (y = -5; y < 5; y += dy) {
+    plot(x, y, f(x, y));
+  }
+}
+```
 
-not by brute-forcing but applying mathematics correctly?
+when the intended image should have a smoother domain like the following?
+
+<!-- ![](https://leesugil.github.io/img/example2.png) -->
+<p align="center">
+  <img src="https://leesugil.github.io/img/example2.png" width="50%">
+</p>
 
 Check out [this side project page](https://leesugil.github.io/projects/draw_surface.html) if you are curious! :)
+
+This is related to one of the subjects that I taught in calculus at Michigan State University.
 
 ## Contact Sugil
 
