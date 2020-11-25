@@ -18,11 +18,13 @@ How should we remove the four corners in the image
 
 ![](https://leesugil.github.io/img/example1.png)
 
-like the following?
+like the following
 
 ![](https://leesugil.github.io/img/example2.png)
 
-Check out [this](https://leesugil.github.io/projects/draw_surface.html) if you are curious! :)
+not by brute-forcing but applying mathematics correctly?
+
+Check out [this side project page](https://leesugil.github.io/projects/draw_surface.html) if you are curious! :)
 
 ## Contact Sugil
 
