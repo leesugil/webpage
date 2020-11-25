@@ -6,7 +6,7 @@
 
 ## Index
 
-In my website, you can find the followings:
+On my website, you can find the followings:
 - Side projects & study notes on mathematics, machine learning, computer graphics, and more!
 - Teaching profile
 - About me
