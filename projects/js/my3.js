@@ -393,20 +393,20 @@ export class Polygon_anim {
 			this.t = 0;
 			if (this.orientation) {
 				this.mesh.rotation.y = 0;
-				this.line.rotation.y = 0;
+				this.line.rotation.y = this.mesh.rotation.y;
 			}
 			else {
 				this.mesh.rotation.y = Math.PI;
-				this.line.rotation.y = Math.PI;
+				this.line.rotation.y = this.mesh.rotation.y;
 			}
 			
 			if (this.mesh.rotation.z % this.angle < (this.angle / 3)) {
 				this.mesh.rotation.z -= this.mesh.rotation.z % this.angle;
-				this.line.rotation.z -= this.line.rotation.z % this.angle;
+				this.line.rotation.z = this.mesh.rotation.z;
 			}
 			else if (this.angle - (this.mesh.rotation.z % this.angle) < (this.angle / 3)) {
 				this.mesh.rotation.z += this.angle - (this.mesh.rotation.z % this.angle);
-				this.line.rotation.z += this.angle - (this.mesh.rotation.z % this.angle);
+				this.line.rotation.z = this.mesh.rotation.z;
 			}
 		}
 		
