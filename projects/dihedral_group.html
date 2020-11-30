@@ -1,0 +1,110 @@
+<html>
+
+<head>
+	<title>PROJECTS | Sugil Lee</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+	<!-- call top navigator -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	$("#nav_top").load("nav1.html");
+	});
+	</script>
+	
+	<!-- call MathJax -->
+	<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	
+</head>
+
+<body>
+	<div id="nav_top"></div>
+	
+	<div id="grad1"><h1><br>SMALL PROJECTS</h1></div>
+	
+	<p style="margin: 0; padding: 1% 10% 1% 10%;"><a href="../projects.html">back to projects</a></p>
+	<h2>Dihedral Group</h2>
+	
+	<p>
+	Dihedral groups are one of the first examples of finite groups that students would see in an abstract algebra class.
+	</p>
+	
+	<p>
+	For $n>3$, the dihedral group $D_{n}$ has its elements that are the symmetric group actions (rotations and reflections) of a regular $n$-gon. Its operation is composition of actions. Dihedral groups are often introduced to have many important applications in physics and mathematics, though the details of advanced applications are usually omitted at the undergraduate level. (And even in a graduate school, you might not encounter this subject depending on your specialization.)
+	</p>
+	
+	<p>
+	A good portion of authors also use $D_{2n}$ to denote $D_{n}$ (the reason behind the choice of $2n$ explained below), but the context is often clear. I'll use $D_n$ for this posting.
+	</p>
+	
+	<div style="text-align: center; padding: 0 25% 0 25%; z-index: -1">
+		<div id="canvas1"></div>
+		A dihedral group $D_{n}$ acts on a regular n-gon.
+		<br>
+		<br>
+		<button id="pause">Pause/Randomize Action</button>
+		<br>
+		If you wish to apply specific actions on a specific $n$-gon shape, click the above pause button and apply the changes via the below options.
+	</div>
+	<div style="text-align: right; width: 50%; padding: 0 25% 0 25%">		
+		<br>
+		<label for="N">Number of vertices:</label>
+		<input id="N" type="text" size="2">
+		<button id="update_n">Apply</button>
+		<br>
+		
+		<label for="t1">Number of CW rotations (a negative numebr would rotate the opposite):</label>
+		<input id="t1" type="text" size="2">
+		<button id="update_t1">Apply</button>
+		<br>
+		
+		<label for="t2">Mirror reflection about the $t$'th vertex, t:</label>
+		<input id="t2" type="text" size="2">
+		<button id="update_t2">Apply</button>
+		<br>
+		(Here $t$ is counted starting from the 12 o'clock direction and moving clock-wise.)
+	</div>
+	
+	<p>
+	Dihedral groups serve as the first examples of presentation of a group using generators $G$ and relations $R$.
+	</p>
+	
+	<p>
+	Let $x$ denote a clock-wise rotation of a regular $n$-gon by $\frac{2 \pi}{n}$. Let $y$ be the horizontal reflection about the vertical center line (not displayed in the above). These are the generators of a generating set $G$ of $D_n$.
+	</p>
+	
+	<p>
+	For example, suppose I wish to make a symmetric reflection about a specific axis. I have to make different descriptions depending on whether $n$ is even or odd, and since my default shape in the above is a regular $6$-gon, I'll treat the even case. 
+	<br><br>
+	Starting from the 12 o'clock direction and moving toward the clock-wise direction, I'll number the vertices with the natural numbers. Then the default reflection action $y$ flips the picture about the vertical line centered between the first ($t=1$) and the last ($t = n$) vertices.
+	<br><br>
+	To make a reflection about the center line between the $t$'th and the $t+1$'th vertices only using the actions $x$ and $y$, we can do the following:
+	<br>&emsp;• Rotate counter-clock-wise $t$ times so that the vertices are now placed between the last and the first position.
+	<br>&emsp;• Apply the reflection $y$.
+	<br>&emsp;• Rotate clock-wise $t$ times so that the two vertices are back to their original location, except they (and all other vertices) have switched their positions in the previous step.
+	<br><br>
+	In terms of symbols, the above action is $x^t y x^{-t}$.
+	</p>
+	
+	<p>
+	The generators $x$ and $y$ have relations to satisfy. For example, Rotating $n$ times or reflecting twice at the same position wouldn't make any changes, so
+	$$x^n = 1 = y^2.$$
+	<a href="https://kconrad.math.uconn.edu/blurbs/grouptheory/dihedral.pdf">Another important relation</a> is that $x$ and $y$ are related by
+	$$y^{-1} x y = x^{-1}.$$
+	And these are all the relations $R$ of $D_n$, therefore we present the dihedral group $D_n$ by
+	$$D_n = \{ x, y \ | \ x^n = y^2 = 1, y^{-1} x y = x^{-1} \}.$$
+	This gives a total of $2n$ elements in $D_n$, justifying the usage of $D_{2n}$ in about the half of the literatures.
+	</p>
+	
+	<p>All the source codes on my webpages can be found on <a href="https://github.com/leesugil/leesugil.github.io/tree/master/projects/js">GitHub</a>.</p>
+	
+	<p>Last edited: 2020/11/29</p>
+	<script type="module" src="js/dihedral_group.js"></script>
+</body>
+
+</html>
